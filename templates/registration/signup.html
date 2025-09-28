@@ -1,0 +1,56 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-primary">
+                <div class="card-body">
+                    <h2 class="text-center text-primary">📝 Регистрация</h2>
+                    <p class="text-muted text-center">
+                        Заполните форму ниже, чтобы создать аккаунт.
+                    </p>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">🚀 Зарегистрироваться</button>
+                    </form>
+
+                    <p class="text-center mt-3">
+                        Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a>
+            <a href="{% url 'ads_list' %}" class="btn btn-light text-primary animated-btn" style="margin-top: 15px;">← Вернуться к объявлениям</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    /* Центрирование контейнера */
+    .container {
+        max-width: 1000px;
+    }
+
+    /* Стили карточки */
+    .card {
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    /* Анимация кнопки */
+    .btn {
+        transition: transform 0.2s ease-in-out;
+    }
+    .btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+{% endblock %}

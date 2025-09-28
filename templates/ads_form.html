@@ -1,0 +1,49 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}Создание объявления{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+
+            <!-- Центрируем кнопки -->
+            <div class="d-grid gap-2 mb-4">
+                <button type="submit" class="btn btn-primary animated-btn">📄 Создать объявление</button>
+            <a href="{% url 'ads_list' %}" class="btn btn-light text-primary animated-btn">← Вернуться к объявлениям</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Стили -->
+<style>
+    textarea, input[type="text"] {
+        width: 100% !important; /* Растягиваем поля на всю ширину */
+    }
+    textarea {
+        height: 500px; /* Делаем текстовое поле выше */
+    }
+
+    /* Анимация кнопок */
+    .animated-btn {
+        transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+    }
+    .animated-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* Разные цвета анимации для кнопок */
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .btn-secondary:hover {
+        background-color: #6c757d;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+asgiref==3.9.2
+Django==5.2.6
+django-allauth==65.11.2
+django-ckeditor-5==0.2.18
+dotenv==0.9.9
+pillow==11.3.0
+python-dotenv==1.1.1
+sqlparse==0.5.3
